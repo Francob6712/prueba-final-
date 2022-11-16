@@ -13,7 +13,7 @@ public class pruebita {
 
 	public static void main(String[] s) {
 	    Scanner lost=new Scanner(System.in);
-	    int opcion, i, vidas=5;
+	    int opcion, i, vidas=15;
 	    var fechaHora = new Date();
 	    var hora = fechaHora.getHours();
 	    var minuto = fechaHora.getMinutes();
@@ -34,28 +34,35 @@ public class pruebita {
 
       boolean victoria = false;{
 
-        while(victoria==false&&vidas>0) {
+    	  while(victoria==false&&vidas>0) {
               System.out.println(guionesB);
-              System.out.println("te quedan "+vidas+" vidas");
+              System.out.println("te quedan "+vidas+" intentos (acertar también te quitara intentos)");
               char LIntroducida =lost.next().charAt(0);
               for(int i2=0; i2<letras.length;i2++) {
                   if(letras[i2]==LIntroducida) 
                   guionesB[i2]=LIntroducida;
                   
-                  else if(letras[i2]!=LIntroducida)
-                	  vidas+=-1;
+                  if(Arrays.equals(letras,guionesB)) {
+                	  vidas=1;
+                  }
+                	  
                 	  
 
-                  { if(Arrays.equals(letras,guionesB)) 
-                      System.out.println("ganaste la palabra era:");
-                  }
+                  
+                  
                   
 
 
-              }
+              }vidas+=-1;
               }
       }
-      System.out.print("te quedaste sin intentos");
+      
+      if(Arrays.equals(letras,guionesB)) 
+          System.out.println("ganaste la palabra era:"+palabra);
+      else
+    	  System.out.print("te quedaste sin intentos");
+    	  
+      
       
 	    do{
 	     System.out.println("¿que desea hacer?");
